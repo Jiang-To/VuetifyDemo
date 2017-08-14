@@ -1,12 +1,12 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
 
 import Home from '@/components/Home'
 import Login from '@/components/users/Login'
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
-export default new Router({
+export default new VueRouter({
   routes: [
     {
       path: '/',
@@ -15,7 +15,14 @@ export default new Router({
     {
       path: '/login',
       component: Login
+    }, {
+      path: '/hidden',
+      component: Login
+    }, {
+      path: '*',
+      redirect: '/'
     }
   ],
   mode: 'history'
 })
+

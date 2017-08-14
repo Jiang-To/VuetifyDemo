@@ -21,18 +21,16 @@
                 </v-flex>
                 <!-- password -->
                 <v-flex xs10 offset-xs1>
-                  <v-text-field label="Password" id="password" prepend-icon="fa fa-lock fa-2x" v-model="password" :append-icon="isPassowrdHidden ? 'visibility_off' : 'visibility'"
-                    :append-icon-cb="() => (isPassowrdHidden = !isPassowrdHidden)" :type="isPassowrdHidden ? 'password' : 'text'"
-                    counter></v-text-field>
+                  <v-text-field label="Password" id="password" prepend-icon="fa fa-lock fa-2x" v-model="password" :append-icon="isPassowrdHidden ? 'visibility_off' : 'visibility'" :append-icon-cb="() => (isPassowrdHidden = !isPassowrdHidden)" :type="isPassowrdHidden ? 'password' : 'text'" counter></v-text-field>
                 </v-flex>
-
+  
                 <v-flex xs4 offset-xs4>
                   <v-btn block class="blue-grey white--text" :loading="isLoggingIn" @click.native="login">
                     Login
                     <span slot="loader">Logging In...</span>
                   </v-btn>
                 </v-flex>
-
+  
               </v-layout>
             </v-container>
           </v-card-title>
@@ -43,27 +41,28 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        username: '',
-        password: '',
-        isPassowrdHidden: true,
-        isLoggingIn: false
-      }
-    },
-    methods: {
-      login() {
-        this.isLoggingIn = true;
-        var self = this;
-        setTimeout(() => (self.isLoggingIn = false), 3000)
-      }
+import AuthStore from '@/stores/auth.store.js'
+
+export default {
+  data () {
+    return {
+      username: '',
+      password: '',
+      isPassowrdHidden: true,
+      isLoggingIn: false
     }
-  }
+  },
+  methods: {
+    login () {
+      this.isLoggingIn = true;
+      this.$store.dispatch('login', { username: this.username, password: this.password })
+    }
+  },
+  store: AuthStore
+}
 
 </script>
 
 <style>
-
 
 </style>

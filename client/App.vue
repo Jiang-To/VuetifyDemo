@@ -11,6 +11,9 @@
           {{ menu.title }}
         </v-btn>
       </v-toolbar-items>
+      <v-spacer></v-spacer>
+      <user></user>
+  
     </v-toolbar>
     <main>
       <v-container fluid>
@@ -22,10 +25,14 @@
 </template>
 
 <script>
+import User from '@/components/common/User'
 import MenuStore from '@/stores/menu.store.js'
 
 export default {
-  data(){
+  components: {
+    User
+  },
+  data () {
     return {
       menus: MenuStore.state.menus
     }

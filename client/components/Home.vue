@@ -1,12 +1,18 @@
 <template>
   <div>
-    This is the home page
+    This is the home page {{ text}}
   </div>
 </template>
 
 <script>
-export default {
+import * as types from '../stores/mutation-types.js'
 
+export default {
+  data () {
+    return {
+      text: types.auth_login
+    }
+  }
 }
 </script>
 

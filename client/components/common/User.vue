@@ -11,14 +11,12 @@
 import AuthStore from '@/stores/auth.store.js'
 
 export default {
-  data () {
-    return {
-      isAuthenticated: AuthStore.getters.isAuthenticated,
-    }
-  },
   computed: {
     user () {
       return AuthStore.getters.user
+    },
+    isAuthenticated (){
+      return AuthStore.getters.isAuthenticated
     }
   }
 }

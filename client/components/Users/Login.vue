@@ -30,7 +30,6 @@
                     <span slot="loader">Logging In...</span>
                   </v-btn>
                 </v-flex>
-  
               </v-layout>
             </v-container>
           </v-card-title>
@@ -54,13 +53,12 @@ export default {
   },
   methods: {
     login () {
-      let _this = this;
-      _this.isLoggingIn = true;
-      _this.$store.dispatch('login', { username: _this.username, password: _this.password })
-        .then(()=> { 
+      this.isLoggingIn = true;
+      this.$store.dispatch('login', { username: this.username, password: this.password })
+        .then(() => {
           // redirect to the previous router or home page
-          let redirectPath = _this.$router.currentRoute.query.from || '/'
-          _this.$router.push(redirectPath)
+          let redirectPath = this.$router.currentRoute.query.from || '/'
+          this.$router.push(redirectPath)
         });
     }
   },

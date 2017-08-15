@@ -2,24 +2,13 @@
 
 import Vue from 'vue'
 import Vuex from 'vuex'
+import utils from '@/utils/auth.utils.js'
 
 Vue.use(Vuex)
 
-let loadUserFromLocalStorage = () =>{
-  return JSON.parse(localStorage.getItem('user'))
-}
-
-let setUserToLocalStorage = (user) =>{
-  localStorage.setItem('user', JSON.stringify(user));
-}
-
-let removeUserToLocalStorage = () =>{
-  localStorage.removeItem('user');
-}
-
 export default new Vuex.Store({
   state: {
-    user: loadUserFromLocalStorage(),
+    user: utils.loadUserFromLocalStorage(),
     error: ''
   },
   getters: {
@@ -33,7 +22,7 @@ export default new Vuex.Store({
   mutations: {
     setUser: (state, user) => {
       if (user !== null && user !== undefined) {
-        setUserToLocalStorage(user);
+        utils.setUserToLocalStorage(user);
         state.user = user
       }
     },
@@ -43,7 +32,7 @@ export default new Vuex.Store({
       }
     },
     removeUser: (state) =>{
-      removeUserToLocalStorage();   
+      utils.removeUserToLocalStorage();   
       state.user = null;
     }
   },

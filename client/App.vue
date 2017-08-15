@@ -4,16 +4,11 @@
       <v-toolbar-title>
         <router-link to="/" tag="span" style="cursor:pointer">Equipment Pool</router-link>
       </v-toolbar-title>
+      <!-- <v-spacer></v-spacer> -->
+      <app-menu></app-menu>
       <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-and-down">
-        <!-- menu  -->
-        <v-btn flat v-for="menu in menus" :key="menu.title" :to="menu.path">
-          {{ menu.title }}
-        </v-btn>
-      </v-toolbar-items>
-      <v-spacer></v-spacer>
-      <user></user>
-  
+      <!-- user components -->
+      <app-user></app-user>
     </v-toolbar>
     <main>
       <v-container fluid>
@@ -25,12 +20,14 @@
 </template>
 
 <script>
-import User from '@/components/common/User'
+import AppUser from '@/components/common/AppUser'
+import AppMenu from '@/components/common/AppMenu'
 import MenuStore from '@/stores/menu.store.js'
 
 export default {
   components: {
-    User
+    AppUser,
+    AppMenu
   },
   data () {
     return {

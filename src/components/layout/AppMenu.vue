@@ -7,21 +7,20 @@
 </template>
 
 <script>
-import AuthStore from '@/stores/auth.store.js'
 
 export default {
-  data (){
+  data () {
     return {
-      menus:[
-        {title: 'fake1',path:'/fake1'},
-        {title: 'fake2',path:'/fake2'},
-        {title: 'fake3',path:'/fake3'},
+      menus: [
+        { title: 'fake1', path: '/fake1' },
+        { title: 'fake2', path: '/fake2' },
+        { title: 'fake3', path: '/fake3' }
       ]
     }
   },
-  computed:{
+  computed: {
     isAuthenticated () {
-      return AuthStore.getters.isAuthenticated
+      return this.$store.getters.isAuthenticated
     }
   }
 }

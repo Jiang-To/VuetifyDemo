@@ -1,4 +1,4 @@
-# vuetify_ui_demo
+# vuetifydemo
 
 > A Vue.js project
 

@@ -1,16 +1,14 @@
 <template>
   <div>
-    this is the logout page
   </div>
 </template>
 
 <script>
-import AuthStore from  '@/stores/auth.store.js'
+import types from '../../store/types'
 
 export default {
-  store: AuthStore,
-  mounted () {
-    this.$store.dispatch('logout')
+  created () {
+    this.$store.dispatch(types.auth.logout)
       .then(() => {
         this.$router.push('/')
       })
@@ -19,5 +17,5 @@ export default {
 </script>
 
 <style>
-  
+
 </style>

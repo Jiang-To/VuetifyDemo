@@ -18,24 +18,18 @@
 </template>
 
 <script>
-import AuthStore from '@/stores/auth.store.js'
-
 export default {
   data () {
     return {
       userMenus: [{
-        title: 'Profile',
-        path: '/profile'
-      }, {
         title: 'Logout',
         path: '/logout'
       }]
     }
   },
-  store: AuthStore,
   computed: {
     user () {
-      return this.$store.getters.user
+      return this.$store.getters.currentUser
     },
     isAuthenticated () {
       return this.$store.getters.isAuthenticated

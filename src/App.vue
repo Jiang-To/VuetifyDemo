@@ -1,8 +1,9 @@
 <template>
-  <v-app toolbar>
-    <v-toolbar dark class="indigo">
+  <v-app>
+     <v-toolbar dark class="indigo">
       <v-toolbar-title>
-        <router-link to="/" tag="span" style="cursor:pointer">Equipment Pool</router-link>
+        <v-icon class="fa fa-cubes"></v-icon>
+        <router-link to="/" tag="span" style="cursor:pointer">EQP Pool</router-link>
       </v-toolbar-title>
       <!-- <v-spacer></v-spacer> -->
       <app-menu></app-menu>
@@ -20,23 +21,22 @@
 </template>
 
 <script>
-import AppUser from '@/components/common/AppUser'
-import AppMenu from '@/components/common/AppMenu'
-import MenuStore from '@/stores/menu.store.js'
+
+import AppUser from './components/layout/AppUser'
+import AppMenu from './components/layout/AppMenu'
 
 export default {
+  data () {
+    return {
+    }
+  },
   components: {
     AppUser,
     AppMenu
-  },
-  data () {
-    return {
-      menus: MenuStore.state.menus
-    }
   }
 }
 </script>
 
-<style>
-
+<style lang="stylus">
+  @import './stylus/main'
 </style>

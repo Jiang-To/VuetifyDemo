@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <h3>this is fake page</h3>
-  </div>
-  
+  <h3>This is a fake page</h3>
 </template>
 
 <script>
